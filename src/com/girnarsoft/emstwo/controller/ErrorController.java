@@ -3,6 +3,7 @@ package com.girnarsoft.emstwo.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,11 +12,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class ErrorController {
 
 	@RequestMapping(value = "errors", method = RequestMethod.GET)
-    public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
+    public String renderErrorPage(HttpServletRequest httpRequest, ModelMap model) {
          
-        ModelAndView errorPage = new ModelAndView("errorPage");
+        //ModelAndView errorPage = new ModelAndView("errorPage");
         String errorMsg = "";
         int httpErrorCode = getErrorCode(httpRequest);
+        System.out.println("in error");
  
         switch (httpErrorCode) {
             case 400: {
@@ -35,8 +37,8 @@ public class ErrorController {
                 break;
             }
         }
-        errorPage.addObject("errorMsg", errorMsg);
-        return errorPage;
+        model.put("errorMsg", errorMsg);
+        return "errorPage";
     }
      
     private int getErrorCode(HttpServletRequest httpRequest) {

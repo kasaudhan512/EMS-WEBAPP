@@ -234,7 +234,7 @@ audio {
 		
 		<div class="page-ms">
 			<p class="page-msg"> Oops, the page you're looking for Disappeared </p>
-			<button class="go-back">Go Back</button>
+			<a href="/emstwo/loginpage"><button class="go-back">Go Back</button></a>
 		</div>
 </div>
 	

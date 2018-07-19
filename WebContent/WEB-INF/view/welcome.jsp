@@ -10,13 +10,13 @@
 </head>
 
 <body>
-<h1 style="text-align: center; color: white;">Welcome to EMS System ${firstName} ${lastName} - ${designation}</h1>
+<h1 style="text-align: center; color: white;">Welcome to EMS System ${employee.getFirstName()} ${employee.getLastName()} - ${designation}	</h1>
 <div style="padding-top: 30px;" >
 <div class="timeline">
   <div class="container left">
     <div class="content">
 		<form action="promotepage" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="promote" value="Promote">Promote An Employee</button>
 		</form>
     </div>
@@ -24,7 +24,7 @@
   <div class="container right">
     <div class="content">
       <form action="displayunderemployeepage" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="displayunderemployee" value="DisplayUnderEmployee">Display Employees Who Works Under You.</button>
 		</form>
     </div>
@@ -32,7 +32,7 @@
   <div class="container left">
     <div class="content">
       <form action="displaymentorpage" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="displaymentor" value="DisplayMentor">Display Your Mentor.</button>
 		</form>
     </div>
@@ -40,7 +40,7 @@
   <div class="container right">
     <div class="content">
       <form action="addunderemployeepage" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="displaymentor" value="DisplayMentor">Add Employee Who Works Under You.</button>
 		</form>
     </div>
@@ -48,7 +48,7 @@
   <div class="container left">
     <div class="content">
       <form action="addmentorpage" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="addmentor" value="DisplayMentor">Add Your Mentor.</button>
 	 </form>
     </div>
@@ -56,7 +56,7 @@
   <div class="container right">
     <div class="content">
       <form action="logout" method="post">
-	    	<input type="hidden" name="employeeId" value="${employeeId}"/>
+	    	<%-- <input type="hidden" name="employeeId" value="${employeeId}"/> --%>
 	    	<button style="background: white; color: red; border: none"  type="submit" name="displaymentor" value="DisplayMentor">LogOut</button>
 		</form>
     </div>

@@ -6,18 +6,23 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.girnarsoft.emstwo.beans.Employee;
 import com.girnarsoft.emstwo.service.ApplicationService;
 
 @Component
 @Controller
+@SessionAttributes("employeeId")
 public class AddMentorController {
 
 	@Autowired
 	private ApplicationService applicationService;
-	private int employeeId;
+	
 	public ApplicationService getApplicationService() {
 		return applicationService;
 	}
@@ -26,40 +31,40 @@ public class AddMentorController {
 	}
 	
 	@RequestMapping("/addmentorpage")
-	public ModelAndView showAddMentorPage(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView model = new ModelAndView();
+	public String showAddMentorPage(@SessionAttribute("employee") Employee employee, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		//ModelAndView model = new ModelAndView();
 		try {
-			employeeId = Integer.parseInt(request.getParameter("employeeId").toString());
+			//employeeId = Integer.parseInt(request.getParameter("employeeId").toString());
 			//model.addObject("employeeId",request.getAttribute("employeeId"));
-			String message1 = applicationService.mentorDetail(employeeId);
-			model.addObject("employeeId",employeeId);
-			model.addObject("message1", message1);
-			model.setViewName("addmentor");
-			return model;
+			String message1 = applicationService.mentorDetail(employee.getEmployeeId());
+			//model.addObject("employeeId",employeeId);
+			model.put("message1", message1);
+			//model.setViewName("addmentor");
+			return "addmentor";
 		} catch(Exception ex) {
-			model.addObject("message", "Something went Wrong Please LogIn !!");
-			model.setViewName("index");
-			return model;
+			model.put("message", "Something went Wrong Please LogIn !!");
+			//model.setViewName("index");
+			return "index";
 		}
 		
 	}
 	
 	@RequestMapping("/addmentor")
-	public ModelAndView addMentor(HttpServletRequest request, HttpServletResponse response) {
+	public String addMentor(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		
-		ModelAndView model = new ModelAndView();
+		//ModelAndView model = new ModelAndView();
 		try {
 			int mentorId = Integer.parseInt(request.getParameter("mentorId").toString());
-			employeeId = Integer.parseInt(request.getParameter("employeeId").toString());
-			String message2 = applicationService.addMentor(employeeId,mentorId);
-			model.addObject("employeeId", employeeId);
-			model.addObject("message2", message2);
-			model.setViewName("addmentor");
-			return model;
+			//employeeId = Integer.parseInt(request.getParameter("employeeId").toString());
+			String message2 = applicationService.addMentor((int)model.get("employeeId"),mentorId);
+			//model.addObject("employeeId", employeeId);
+			model.put("message2", message2);
+			//model.setViewName("addmentor");
+			return "addmentor";
 		} catch(Exception ex) {
-			model.addObject("message", "Something went Wrong Please LogIn !!");
-			model.setViewName("index");
-			return model;
+			model.put("message", "Something went Wrong Please LogIn !!");
+			//model.setViewName("index");
+			return "index";
 		}
 		
 	}

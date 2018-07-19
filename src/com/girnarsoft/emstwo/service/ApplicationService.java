@@ -81,6 +81,10 @@ public class ApplicationService {
 		return applicationDao.getDesignation(employeeId);
 	}
 	
+	public int getDesignationId(int employeeId) {
+		return applicationDao.getDesignationId(employeeId);
+	}
+	
 	public int getNewUserId() {
 		return applicationDao.getNewUserId();
 	}
@@ -264,6 +268,20 @@ public class ApplicationService {
 		else
 		{
 			returnData = applicationDao.getMentorFirstName(employeeId) + " " + applicationDao.getMentorLastName(employeeId) + " is Already your mentor. If you want to Update Please fill the details";
+		}
+		return returnData;
+	}
+	
+	public String underEmployeeDetail(int employeeId) {
+		int count = applicationDao.isUnderEmployeeExist(employeeId);
+		String returnData = ""; 
+		if(count <= 0)
+		{
+			returnData = "There is No Employee Who works under you yet.";
+		}
+		else
+		{
+			returnData = "";
 		}
 		return returnData;
 	}

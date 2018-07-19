@@ -75,7 +75,7 @@
 
 <div class="forms">
 	<form action="welcomepage" method="post">
-		  	<input type="hidden" value="${employeeId}" name="employeeId">
+		  	<%-- <input type="hidden" value="${employeeId}" name="employeeId"> --%>
 		  	 <input type="submit" value="Home" class="button"/>
 	</form>
 </div>

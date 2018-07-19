@@ -19,14 +19,14 @@
 	      <p style="color: red;">${message1}</p>
 	      <p style="color: red;">${message2}</p>
 	      <div class="input-field">
-	      	<input type="hidden" value="${employeeId}" name="employeeId">
+	      	<%-- <input type="hidden" value="${employeeId}" name="employeeId"> --%>
 	        <label for="text">Mentor Id</label>
 	        <input type="text" name="mentorId" pattern="[0-9]+" maxlength="5" size="5" title="Mentor Id Contains Only Integer" required="text" placeholder="Your Mentor Id" /> 
 	        <input type="submit" value="add Mentor" class="button"/>
 	      </div>
 	  </form>
 	  <form action="welcomepage" method="post" style="padding-top: 0px;">
-		  	<input type="hidden" value="${employeeId}" name="employeeId">
+		  <%-- 	<input type="hidden" value="${employeeId}" name="employeeId"> --%>
 		  	<input type="submit" value="Home" class="button"/>
 	</form>
 </div>

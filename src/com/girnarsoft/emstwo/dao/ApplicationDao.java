@@ -46,6 +46,12 @@ public class ApplicationDao {
 		return count;
 	}
 	
+	public int isUnderEmployeeExist(int employeeId) {
+		String sql = "select count(*) from employee where mentor_id = ?";
+		int count = jdbcTemplate.queryForObject(sql, new Object[] { employeeId }, Integer.class);
+		return count;
+	}
+	
 	public List getMentor(int employeeId) {
 		String sql = "select mentor_id from employee where emp_id = ?";
 		int mentorId = (int) jdbcTemplate.queryForObject(sql, new Object[] { employeeId }, Integer.class);
@@ -102,6 +108,12 @@ public class ApplicationDao {
 		String sql = "select last_name from employee where emp_id = ?";
 		String firstName = jdbcTemplate.queryForObject(sql, new Object[] { employeeId }, String.class);
 		return firstName;
+	}
+	
+	public int getDesignationId(int employeeId) {
+		String sql = "select des_id from employee where emp_id = ?";
+		int designationId = jdbcTemplate.queryForObject(sql, new Object[] { employeeId }, Integer.class);
+		return designationId;
 	}
 
 	public String getDesignation(int employeeId) {

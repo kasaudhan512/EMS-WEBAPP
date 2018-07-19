@@ -14,11 +14,10 @@
 </head>
 <body>
 <div class="forms">
-	
 	<form action="promote" method="post" style="padding-top: 0px;">
 	      <p style="color: red;">${message}</p>
 	      <div class="input-field">
-	      	<input type="hidden" value="${employeeId}" name="employeeId">
+	      	<%-- <input type="hidden" value="${employeeId}" name="employeeId"> --%>
 	        <label for="text">Employee Id</label>
 	        <input type="text" name="promoteEmployeeId" pattern="[0-9]+" maxlength="5" size="5" title="Employee Id Contains Only Integer" required="text" placeholder="whom you want to promote" />
 	        <label for="designation">Designation</label>
@@ -36,7 +35,7 @@
 	      </div>
 	  </form>
 	  <form action="welcomepage" method="post" style="padding-top: 0px;">
-	  	<input type="hidden" value="${employeeId}" name="employeeId">
+	  	<%-- <input type="hidden" value="${employeeId}" name="employeeId"> --%>
 	  	 <input type="submit" value="Home" class="button"/>
 	  </form>  
 </div>

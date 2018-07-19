@@ -12,7 +12,7 @@ public class EmployeeMapper implements RowMapper<Employee> {
 	@Override
 	public Employee mapRow(ResultSet resultSet, int rowNumber) throws SQLException {
 		Employee employee = new Employee();
-		employee.setEmpId(resultSet.getInt("emp_id"));
+		employee.setEmployeeId(resultSet.getInt("emp_id"));
 		employee.setFirstName(resultSet.getString("first_name"));
 		employee.setLastName(resultSet.getString("last_name"));
 		employee.setDesignationId(resultSet.getInt("dep_id"));

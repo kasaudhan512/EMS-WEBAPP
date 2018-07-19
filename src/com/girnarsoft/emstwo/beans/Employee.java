@@ -4,22 +4,25 @@ package com.girnarsoft.emstwo.beans;
 public class Employee {
 
 	
-	private int empId;
-    private String firstName;
+	private int employeeId;
+    
+	private String firstName;
     private String lastName;
     private int designationId;
+    private int pin;
+    
     public int getDesignationId() {
 		return designationId;
 	}
 	public void setDesignationId(int designationId) {
 		this.designationId = designationId;
 	}
-	private int pin;
-	public int getEmpId() {
-		return empId;
+	
+	public int getEmployeeId() {
+		return employeeId;
 	}
-	public void setEmpId(int empId) {
-		this.empId = empId;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 	public String getFirstName() {
 		return firstName;
