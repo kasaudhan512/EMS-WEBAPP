@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.girnarsoft.emstwo.beans.Employee;
-import com.girnarsoft.emstwo.service.*;;
+import com.girnarsoft.emstwo.service.*;
+import com.sun.net.httpserver.Filter.Chain;;
 
 @Component
 @Controller
@@ -42,9 +43,13 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/")
-	public String welcome() {
+	public String welcome(HttpServletRequest request, HttpServletResponse response) {
+
 		return "index";
 	}
+	
+
+	
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("employee") Employee employee, HttpServletRequest request, ModelMap model) {
 		//ModelAndView model = new ModelAndView();

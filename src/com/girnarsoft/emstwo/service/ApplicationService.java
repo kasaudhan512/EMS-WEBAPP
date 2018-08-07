@@ -215,7 +215,7 @@ public class ApplicationService {
 			(employeeDesignation.equals("CEO") && !mentorDesignation.equals("CEO") && !mentorDesignation.equals("Director") && !mentorDesignation.equals("HR") && !mentorDesignation.equals("Manager") && !mentorDesignation.equals("New Joiner")))
 			{
 				applicationDao.updateMentor(employeeId, mentorId);
-				returnData = "You have Successfully Added " + applicationDao.getFirstName(mentorId) + " " + applicationDao.getLastName(mentorId) + " " + "as Your Mentor";
+				returnData = "	" + applicationDao.getFirstName(mentorId) + " " + applicationDao.getLastName(mentorId) + " " + "as Your Mentor";
 			}
 			else
 			{
@@ -233,7 +233,7 @@ public class ApplicationService {
 		int count = applicationDao.isEmployeeExist(underEmployeeId);
 		if(count <= 0)
 		{
-			returnData = "No employee Exist With Given Mentor Id";
+			returnData = "No employee Exist With Given Employee Id";
 		}
 		else
 		{

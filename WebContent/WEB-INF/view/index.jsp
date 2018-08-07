@@ -9,6 +9,35 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+	<style type="text/css">
+	.validation
+    {
+      color: red;
+      margin-bottom: 20px;
+    }
+    .not_error{
+    	display:none;
+    }
+    .error{
+    	display:block;
+    	color:red;
+    }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#employeeid").keyup(function(e) {
+			var inputVal = $(this).val();
+		    var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
+		    if(!numericReg.test(inputVal)) {
+		        $("#check").removeClass().addClass("error");
+		    }
+		    else{
+		        $("#check").removeClass().addClass("not_error");
+		    }
+		});
+	});
+	</script>
 
 </head>
 <body>
@@ -18,9 +47,11 @@
 	      <p style="color: red">${message}</p>
 	      <div class="input-field">
 	        <label for="text">Employee Id</label>
-	        <form:input path="employeeId" type="text" pattern="[0-9]+" maxlength="5" size="5" title="Employee Id Contains Only Integer" required="text" />
+	        <form:input path="employeeId" type="text" pattern="[0-9]+" maxlength="5"  title="Employee Id Contains Only Integer" id="employeeid" required="text" />
+	        <span class="not_error" id="check">Only Numeric characters is allowed.</span>
 	        <label for="password">Password</label> 
-	        <form:password path="pin" pattern="[0-9]+" maxlength="4" size="4" title="Password contains Only Integer" required="text"/>
+	        <form:password path="pin" pattern="[0-9]+" maxlength="4" size="4" title="Password contains Only Integer" required="text" id="password"/>
+	        <span class="not_error" id="check">Only Numeric characters is allowed.</span>
 	        <input type="submit" value="Login" class="button"/>
 	      </div>
 	  </form:form>
